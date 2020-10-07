@@ -32,7 +32,7 @@ public class AlumnoController extends CommonController<Alumno, AlumnoService>{
 	
 		Optional<Alumno> o = service.findById(id);
 		
-		if(o.isEmpty() || o.get().getFoto() == null) {
+		if(!o.isPresent() || o.get().getFoto() == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
@@ -52,7 +52,7 @@ public class AlumnoController extends CommonController<Alumno, AlumnoService>{
 		
 		Optional<Alumno> o = service.findById(id);
 		
-		if(o.isEmpty()) {
+		if(!o.isPresent()) {
 			return ResponseEntity.notFound().build();
 		}
 		
@@ -88,7 +88,7 @@ public class AlumnoController extends CommonController<Alumno, AlumnoService>{
 		
 		Optional<Alumno> o = service.findById(id);
 		
-		if(o.isEmpty()) {
+		if(!o.isPresent()) {
 			return ResponseEntity.notFound().build();
 		}
 		
